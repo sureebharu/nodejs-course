@@ -17,9 +17,6 @@ app.use((req,res,next)=>{
  console.log(log);
  next();
 })
-app.use((req,res)=>{
-    res.render('maintenance.hbs');
-})
 app.get('/',(req,res)=>{
     res.render('home.hbs',{
         title:'Welcome',
@@ -33,5 +30,14 @@ app.get('/about',(req,res)=>{
         head:'help page',
         year:new Date().getFullYear()
     });
+})
+
+app.get('/projects',(req,res)=>{
+ res.render('project.hbs',{
+     title:'Projects',
+     head:'Projects page',
+     year: new Date().getFullYear(),
+
+ })
 })
 app.listen(port,()=>console.log(`Example app listening on port ${port}`));
